@@ -1,0 +1,29 @@
+{
+    "name": "mochai",
+    "version": "0.2.3",
+    "description": "Test framework which blended chai and mocha ",
+    "dependencies": {},
+    "devDependencies": {
+        "grunt": "~0.4.1",
+        "grunt-contrib-jshint": "~0.6.3",
+        "grunt-contrib-clean": "~0.5.0",
+        "grunt-mkdir": "~0.1.1",
+        "grunt-jsdoc": "~0.4.1",
+        "grunt-contrib-uglify": "~0.2.0",
+        "matchdep": "~0.1.1",
+        "mocha-phantomjs": "git://github.com/Layzie/mocha-phantomjs",
+        "phantomjs": "*",
+        "mocha": "*",
+        "chai": "*",
+        "jshint": "*",
+        "requirejs": "~2.1.0",
+        "jsdoc": "git://github.com/jsdoc3/jsdoc.git"
+    },
+    "engines": {
+        "node": ">=0.8.0",
+        "npm": ">=1.1.0"
+    },
+    "private": true,
+    "bin": {},
+    "main": ""
+}
