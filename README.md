@@ -9,6 +9,10 @@ mochai + chai を組み合わせたブラウザ向けのテストフレームワ
 
 プログラム中から直接テストコード呼び出しを行う機能もあるため、任意のタイミング(mouse events) のタイミング等でテストを実行することも可能です。
 
+# ScreenShots
+
+- 実行結果
+![Chrome devtools - console](https://raw2.github.com/fkei/mochai/master/screenshots/browser-result.png)
 
 
 # Features
