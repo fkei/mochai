@@ -1,7 +1,7 @@
 mochai
 ===========
 
-### Test framework for beez (mocha + chai)
+### Test framework which blended chai and mocha
 
 # About
 
