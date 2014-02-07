@@ -16,8 +16,12 @@ define(['mochai'], function(mochai){
         },
         'suites.2' : function() {
             describe('suites.2.0', function(){
-                it('suites.2.0.0', function() {
-                    expect(true).be.ok;
+                it('suites.2.0.0', function(done) {
+                    setTimeout(function() {
+                        console.log('1500ms');
+                        expect(true).be.ok;
+                        done();
+                    }, 1500);
                 });
             });
         },
