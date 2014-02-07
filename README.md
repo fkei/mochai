@@ -11,8 +11,11 @@ mochai + chai を組み合わせたブラウザ向けのテストフレームワ
 
 # ScreenShots
 
-- 実行結果
+- Chrome実行結果
 ![Chrome devtools - console](https://raw2.github.com/fkei/mochai/master/screenshots/browser-result.png)
+
+- Phantomjs実行結果
+![Phantomjs - console](https://raw2.github.com/fkei/mochai/master/screenshots/phantom-result.png)
 
 
 # Features
@@ -27,6 +30,7 @@ mochai + chai を組み合わせたブラウザ向けのテストフレームワ
 - [mocha](http://visionmedia.github.io/mocha/) (Require)
 - [chai](http://chaijs.com/) (Require)
 - [phantomjs](http://phantomjs.org/) (Optional)
+- [mocha-phantomjs](https://github.com/Layzie/mocha-phantomjs) (Optional)
 
 
 
@@ -40,7 +44,7 @@ mocha.js or mochai.min.js を `script` タグ もしくは require.js でロー�
 
 テストケースを定義して、個別にテストケースをmochaiに追加し、テスト実行をしています。
 
-```
+```javascript
 (function (global) {
     // 1 テストケース
     var suite = {
@@ -119,7 +123,7 @@ require.jsを利用して、テストコードを別ファイルに作成して�
 
 **本体**
 
-```
+```javascript
 (function (global) {
     var require = global.require;
 
@@ -173,7 +177,7 @@ require.jsを利用して、テストコードを別ファイルに作成して�
 
 **テストファイル**
 
-```
+```javascript
 define(['mochai'], function(mochai){
 
     return {
@@ -199,10 +203,21 @@ define(['mochai'], function(mochai){
 - mochaiは `setup()` が実行されるまで、内部メソッドはすべて空の関数で定義されています。
 
 
-## TODO
+## Using mochai on phantomjs
 
-CUI test : [phantomjs](http://phantomjs.org/) を利用します。
+mochaiは[phantomjs](http://phantomjs.org/)を利用してCUIでもテストを実行することが可能です。
 
+利用する場合の手順は以下のようになります。
+
+- [phantomjs](http://phantomjs.org/)と[mocha-phantomjsのfork版](https://github.com/Layzie/mocha-phantomjs)を`package.json`の`devDependencies`に指定します。
+```json
+"devDependencies": {
+    "mocha-phantomjs": "git://github.com/Layzie/mocha-phantomjs#multiple-task",
+    "phantomjs": "*"
+}
+```
+
+- `./node_modules/mocha-phantomjs/bin/mocha-phantomjs TESTDIRECTORY/test.html`のように指定してテストを実行してください。詳しくは[mocha-phantomjsのfork版](https://github.com/Layzie/mocha-phantomjs)の[README.md](https://github.com/Layzie/mocha-phantomjs/blob/multiple-task/README.md)を参照ください。
 
 # Build
 
