@@ -52,6 +52,19 @@
                         'mochai.min.js': ['mochai.js']
                     }
                 }
+            },
+            mocha_phantomjs: {
+                no_output: {
+                    options: {
+                        'reporter': 'dot'
+                    },
+                    files: {
+                        src: [
+                            'spec/global.html',
+                            'spec/requirejs.html'
+                        ]
+                    }
+                }
             }
         });
 
@@ -70,6 +83,10 @@
             'jsdoc'
         ]);
 
+        // task: test
+        grunt.registerTask('test', [
+            'mocha_phantomjs'
+        ]);
         // task: defulat
         grunt.registerTask('default', [
             'clean',

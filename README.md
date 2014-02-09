@@ -220,6 +220,38 @@ mochaiは[phantomjs](http://phantomjs.org/)を利用してCUIでもテストを�
 
 - `./node_modules/mocha-phantomjs/bin/mocha-phantomjs TESTDIRECTORY/test.html`のように指定してテストを実行してください。詳しくは[mocha-phantomjsのfork版](https://github.com/Layzie/mocha-phantomjs)の[README.md](https://github.com/Layzie/mocha-phantomjs/blob/multiple-task/README.md)を参照ください。
 
+### grunt-mochai-phantomjs
+
+元々あった [jdcataldo/grunt-mocha-phantomjs](https://github.com/jdcataldo/grunt-mocha-phantomjs)をforkして
+[Layzie/grunt-mocha-phantomjs](https://github.com/Layzie/grunt-mocha-phantomjs)というmochai向けのGruntタスクを作っています。
+
+`package.json`に以下の記述を入れます。
+
+```json
+"devDependencies": {
+    "grunt-mocha-phantomjs": "git://github.com/Layzie/grunt-mocha-phantomjs#apply_mochai",
+}
+```
+
+その後、`Gruntfile.js`に以下のようにタスクを登録して使用できます。
+
+```javascript
+grunt.initConfig({
+    mocha_phantomjs: {
+        all: ['test/**/*.html']
+    }
+});
+
+grunt.loadNpmTasks('grunt-mocha-phantomjs');
+
+// task: test
+grunt.registerTask('test', [
+    'mocha_phantomjs'
+]);
+```
+
+使い方はfork元と同じ使用方法です。 [README.md](https://github.com/Layzie/grunt-mocha-phantomjs/blob/apply_mochai/README.md)を参照ください。
+
 # Build
 
 ```
