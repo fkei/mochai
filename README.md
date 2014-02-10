@@ -31,8 +31,8 @@ mochai + chai を組み合わせたブラウザ向けのテストフレームワ
 - [mocha](http://visionmedia.github.io/mocha/) (Require)
 - [chai](http://chaijs.com/) (Require)
 - [phantomjs](http://phantomjs.org/) (Optional)
-- [mocha-phantomjs](https://github.com/Layzie/mocha-phantomjs) (Optional)
-
+- [Layzie/mocha-phantomjs](https://github.com/Layzie/mocha-phantomjs) (Optional)
+- [Layzie/grunt-mocha-phantomjs](https://github.com/Layzie/grunt-mocha-phantomjs) (Optional)
 
 
 # Install
