@@ -38,7 +38,7 @@
     var isRequire = !!(typeof define === 'function' && define.amd);
 
     var mochai = {
-        VERSION: '0.2.3',
+        VERSION: '0.2.4',
         DEBUG: w.DEBUG || false,
         suites: {},
         runner: null,
