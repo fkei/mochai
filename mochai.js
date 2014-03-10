@@ -128,22 +128,17 @@
              */
             self.run = function (name, callback) {
                 var self = this;
+                var ary = name;
+                var suite;
 
                 if (!this.setuped) {
                     throw new Error('"mochai.setup()" is not running.');
                 }
+
                 this.libs.mocha.suite.suites = []; // clear
+
                 if (!this.suites[name]) {
                     return;
-                }
-
-                var ary = name;
-                if (!is('Array', name)) {
-                    ary = [name];
-                }
-
-                for (var idx in ary) {
-                    self.suites[ary[idx]]();
                 }
 
                 this.libs.mocha.checkLeaks();
@@ -151,12 +146,20 @@
                 if (this.isMochaPhantomJS()) {
 
                     for (var key in self.suites) {
-                        var suite = self.suites[key];
+                        suite = self.suites[key];
                         this.mochaPhantomJS.callback.push(suite());
                     }
 
                     this.runner = this.mochaPhantomJS.run();
                 } else {
+                    if (!is('Array', name)) {
+                        ary = [name];
+                    }
+
+                    for (var idx in ary) {
+                        self.suites[ary[idx]]();
+                    }
+
                     this.runner = this.libs.mocha.run(callback);
                 }
             };
