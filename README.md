@@ -22,7 +22,7 @@ mochai + chai を組み合わせたブラウザ向けのテストフレームワ
 # Features
 
 - [mocha](http://visionmedia.github.io/mocha/) + [chai](http://chaijs.com/)　をサポート
-- [phantomjs](http://phantomjs.org/) をサポート
+- [phantomjs](http://phantomjs.org/) でのテストをサポート
 - 任意のタイミングでテストケースを追加削除可能
 - scriptタグ, [require.js](http://requirejs.org/) 両方でのロードをサポート
 
@@ -30,9 +30,9 @@ mochai + chai を組み合わせたブラウザ向けのテストフレームワ
 
 - [mocha](http://visionmedia.github.io/mocha/) (Require)
 - [chai](http://chaijs.com/) (Require)
-- [phantomjs](http://phantomjs.org/) (Optional)
-- [Layzie/mocha-phantomjs](https://github.com/Layzie/mocha-phantomjs) (Optional)
-- [Layzie/grunt-mocha-phantomjs](https://github.com/Layzie/grunt-mocha-phantomjs) (Optional)
+- [phantomjs](http://phantomjs.org/)
+- [mocha-phantomjs](https://github.com/metaskills/mocha-phantomjs) (Optional)
+- [grunt-mocha-phantomjs](https://github.com/jdcataldo/grunt-mocha-phantomjs) (Optional)
 
 
 # Install
@@ -208,43 +208,46 @@ define(['mochai'], function(mochai){
 
 mochaiは[phantomjs](http://phantomjs.org/)を利用してCUIでもテストを実行することが可能です。
 
-利用する場合の手順は以下のようになります。
+### mocha-phantomjsを使用する場合
 
-- [phantomjs](http://phantomjs.org/)と[mocha-phantomjsのfork版](https://github.com/Layzie/mocha-phantomjs)を`package.json`の`devDependencies`に指定します。
-```json
-"devDependencies": {
-    "mocha-phantomjs": "git://github.com/Layzie/mocha-phantomjs#multiple-task",
-    "phantomjs": "*"
-}
-```
-
-- `./node_modules/mocha-phantomjs/bin/mocha-phantomjs TESTDIRECTORY/test.html`のように指定してテストを実行してください。詳しくは[mocha-phantomjsのfork版](https://github.com/Layzie/mocha-phantomjs)の[README.md](https://github.com/Layzie/mocha-phantomjs/blob/multiple-task/README.md)を参照ください。
-
-### grunt-mochai-phantomjs
-
-元々あった [jdcataldo/grunt-mocha-phantomjs](https://github.com/jdcataldo/grunt-mocha-phantomjs)をforkして
-[Layzie/grunt-mocha-phantomjs](https://github.com/Layzie/grunt-mocha-phantomjs)というmochai向けのGruntタスクを作っています。
-
-`package.json`に以下の記述を入れます。
-
-```json
-"devDependencies": {
-    "grunt-mocha-phantomjs": "git://github.com/Layzie/grunt-mocha-phantomjs#apply_mochai",
-}
-```
-
-`npm`でインストールします。
+- [phantomjs](http://phantomjs.org/)と[mocha-phantomjs](https://github.com/metaskills/mocha-phantomjs)をインストールします。
 
 ```sh
-$npm install
+$ npm install -g mocha-phantomjs phantomjs
 ```
 
-その後、`Gruntfile.js`に以下のようにタスクを登録して使用できます。
+- テストしたいHTMLを指定してmocha-phantomjsを走らせます。
+
+```sh
+$ mocha-phantomjs -R dot spec/global.html
+```
+
+詳しくは[mocha-phantomjs](https://github.com/metaskills/mocha-phantomjs)を参照してください。
+
+### grunt-mocha-phantomjsを使用する場合 
+
+- [grunt-mocha-phantomjs](https://github.com/jdcataldo/grunt-mocha-phantomjs)をインストールします。
+
+```sh
+npm install grunt-mocha-phantomjs --save-dev
+```
+
+- taskの設定とロードをします。
 
 ```javascript
 grunt.initConfig({
     mocha_phantomjs: {
-        all: ['test/**/*.html']
+        no_output: {
+            options: {
+                'reporter': 'dot'
+            },
+            files: {
+                src: [
+                    'spec/global.html',
+                    'spec/requirejs.html'
+                ]
+            }
+        }
     }
 });
 
@@ -256,7 +259,7 @@ grunt.registerTask('test', [
 ]);
 ```
 
-使い方はfork元と同じ使用方法です。 [README.md](https://github.com/Layzie/grunt-mocha-phantomjs/blob/apply_mochai/README.md)を参照ください。
+詳しくは[grunt-mocha-phantomjs](https://github.com/jdcataldo/grunt-mocha-phantomjs)を参照してください。
 
 # Build
 

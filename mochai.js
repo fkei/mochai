@@ -120,6 +120,7 @@
 
             /**
              * Run test suites
+             * Warnning: It does not support the mochaPhantomJS.run() more than once.
              *
              * @memberof mochai
              * @param {String} name suite name
@@ -166,6 +167,7 @@
 
             /**
              * Output test report for the GUI browser console
+             * Warnning: It does not support the mochaPhantomJS.run() more than once.
              *
              * @memberof mochai
              * @param {Object} runner mocha-phantomjs.runner
