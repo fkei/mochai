@@ -53,7 +53,7 @@
             // define function
 
             /**
-             * Operating environment or mocha-phantomjs
+             * Add flag for enviroment
              *
              * @memberof mochai
              * @return {boolean}
@@ -63,7 +63,7 @@
             };
 
             /**
-             * Adding a test suite
+             * Add test suite
              *
              * @memberof mochai
              * @param {String|Array|function} target require.path or function
@@ -119,17 +119,18 @@
             };
 
             /**
-             * test suite run
-             * Warn: It does not support the mochaPhantomJS.run() more than once.
+             * Run test suites
+             * Warnning: It does not support the mochaPhantomJS.run() more than once.
              *
              * @memberof mochai
-             * @param {String} name sutei name
+             * @param {String} name suite name
              * @param {function} callback
              */
             self.run = function (name, callback) {
                 var self = this;
                 var ary = name;
                 var suite;
+                var tasks = [];
 
                 if (!this.setuped) {
                     throw new Error('"mochai.setup()" is not running.');
@@ -147,7 +148,7 @@
 
                     for (var key in self.suites) {
                         suite = self.suites[key];
-                        this.mochaPhantomJS.callback.push(suite());
+                        tasks.push(suite());
                     }
 
                     this.runner = this.mochaPhantomJS.run();
@@ -165,8 +166,8 @@
             };
 
             /**
-             * Console output report of the GUI browser
-             * Warn: It does not support the mochaPhantomJS.run() more than once.
+             * Output test report for the GUI browser console
+             * Warnning: It does not support the mochaPhantomJS.run() more than once.
              *
              * @memberof mochai
              * @param {Object} runner mocha-phantomjs.runner

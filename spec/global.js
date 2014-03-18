@@ -1,10 +1,10 @@
 (function (global) {
     var suite = {
         'suite.0': function() {
-            before(function () {
-                console.log('Called global suites 0.0 before');
-            });
             describe('suite.0.0', function(){
+                before(function () {
+                    console.log('Called global suites 0.0 before');
+                });
                 it('suite.0.0.0', function() {
                     expect(mochai.VERSION).be.ok;
                     expect(mochai.libs.chai).be.ok;
@@ -14,9 +14,9 @@
                     console.log(this.before);
                     //expect(mochai.suites['spec/test/index']).be.ok;
                 });
-            });
-            after(function () {
-                console.log('Called global suites 0.0 after');
+                after(function () {
+                    console.log('Called global suites 0.0 after');
+                });
             });
         }
     };
