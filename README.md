@@ -12,11 +12,11 @@ mochai + chai を組み合わせたブラウザ向けのテストフレームワ
 # ScreenShots
 
 - Chrome実行結果
-![Chrome devtools - console](https://raw2.github.com/fkei/mochai/master/screenshots/browser-result.png)
+![Chrome devtools - console](https://raw.githubusercontent.com/fkei/mochai/master/screenshots/browser-result.png)
 
 - Phantomjs実行結果
 
-![Phantomjs - console](https://raw2.github.com/fkei/mochai/master/screenshots/phantom-result.png)
+![Phantomjs - console](https://raw.githubusercontent.com/fkei/mochai/master/screenshots/phantom-result.png)
 
 
 # Features
