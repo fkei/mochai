@@ -21,14 +21,14 @@ mochai + chai を組み合わせたブラウザ向けのテストフレームワ
 
 # Features
 
-- [mocha](http://visionmedia.github.io/mocha/) + [chai](http://chaijs.com/)　をサポート
+- [mocha](http://mochajs.org/) + [chai](http://chaijs.com/)　をサポート
 - [phantomjs](http://phantomjs.org/) でのテストをサポート
 - 任意のタイミングでテストケースを追加削除可能
 - scriptタグ, [require.js](http://requirejs.org/) 両方でのロードをサポート
 
 # Requirements
 
-- [mocha](http://visionmedia.github.io/mocha/) (Require)
+- [mocha](http://mochajs.org/) (Require)
 - [chai](http://chaijs.com/) (Require)
 - [phantomjs](http://phantomjs.org/)
 - [mocha-phantomjs](https://github.com/metaskills/mocha-phantomjs) (Optional)
